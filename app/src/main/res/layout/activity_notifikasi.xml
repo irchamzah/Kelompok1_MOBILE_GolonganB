@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="432dp"
+        android:layout_height="71dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-12dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPostalAddress"
+        android:layout_width="384dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="91dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPostalAddress2"
+        android:layout_width="384dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="145dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPostalAddress3"
+        android:layout_width="384dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="415dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPostalAddress8"
+        android:layout_width="384dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="577dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPostalAddress11"
+        android:layout_width="384dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="631dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPostalAddress9"
+        android:layout_width="384dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="523dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPostalAddress10"
+        android:layout_width="384dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="469dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPostalAddress4"
+        android:layout_width="384dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="199dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPostalAddress5"
+        android:layout_width="384dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="361dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPostalAddress6"
+        android:layout_width="384dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="307dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPostalAddress7"
+        android:layout_width="384dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="253dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NOTIFIKASI"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="23dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="154dp"
+        android:layout_height="32dp"
+        android:text="JUDUL NOTIFIKASI"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="100dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="154dp"
+        android:layout_height="32dp"
+        android:text="JUDUL NOTIFIKASI"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="154dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="154dp"
+        android:layout_height="32dp"
+        android:text="JUDUL NOTIFIKASI"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="423dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="154dp"
+        android:layout_height="32dp"
+        android:text="JUDUL NOTIFIKASI"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="646dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="154dp"
+        android:layout_height="32dp"
+        android:text="JUDUL NOTIFIKASI"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="590dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="154dp"
+        android:layout_height="32dp"
+        android:text="JUDUL NOTIFIKASI"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="531dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="154dp"
+        android:layout_height="32dp"
+        android:text="JUDUL NOTIFIKASI"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="479dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="154dp"
+        android:layout_height="32dp"
+        android:text="JUDUL NOTIFIKASI"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="371dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="154dp"
+        android:layout_height="32dp"
+        android:text="JUDUL NOTIFIKASI"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="318dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="154dp"
+        android:layout_height="32dp"
+        android:text="JUDUL NOTIFIKASI"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="264dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="154dp"
+        android:layout_height="32dp"
+        android:text="JUDUL NOTIFIKASI"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="206dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
