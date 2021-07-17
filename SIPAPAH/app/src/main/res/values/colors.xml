@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="hijau1">#299E63</color>
+    <color name="hijau2">#299E63</color>
+    <color name="hijau3">#299E63</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="hitam">#263238</color>
+    <color name="putih">#FFFFFFFF</color>
+    <color name="abuabu">#EBEBEB</color>
+    <color name="abuabugelap">#808080</color>
+</resources>

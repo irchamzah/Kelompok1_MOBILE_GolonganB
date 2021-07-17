@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_margin="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/img_kreasiLengkap"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/ic_launcher_foreground"/>
+
+        <TextView
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/hitam"
+            android:id="@+id/tv_namaLengkap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="4dp"
+            android:lines="2"
+            android:maxLines="2"
+            android:ellipsize="marquee"
+            android:text="Nama Tutorial"/>
+
+        <TextView
+            android:textColor="@color/abuabugelap"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/tv_keteranganLengkap"
+            android:lines="5"
+            android:maxLines="5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Keterangan Awal"/>
+
+    </LinearLayout>
+
+
+
+
+
+</androidx.cardview.widget.CardView>
