@@ -12,9 +12,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/hijau2" />
+            android:layout_height="200dp"
+            android:background="@color/abuabu" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,16 +34,6 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <TextView
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="PROFILE"
-                android:textColor="@color/putih"
-                android:textSize="20sp" />
-
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
@@ -52,6 +41,8 @@
                 android:src="@drawable/ic_profil" />
 
             <TextView
+                android:textSize="17dp"
+                android:fontFamily="@font/mbold"
                 android:textStyle="bold"
                 android:id="@+id/tv_nama"
                 android:layout_width="match_parent"
@@ -59,16 +50,17 @@
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="Nama User"
-                android:textColor="@color/putih" />
+                android:textColor="@color/hitam" />
 
             <TextView
+                android:fontFamily="@font/mmedium"
                 android:id="@+id/tv_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:gravity="center"
                 android:text="Email"
-                android:textColor="@color/putih" />
+                android:textColor="@color/hitam" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -86,6 +78,7 @@
                     android:paddingVertical="20dp">
 
                     <RelativeLayout
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:id="@+id/btn_editProfile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -104,6 +97,7 @@
                                 android:src="@drawable/ic_baseline_edit_24" />
 
                             <TextView
+                                android:fontFamily="@font/mlight"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
@@ -121,7 +115,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:id="@+id/btn_ubahPassword"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
@@ -137,14 +131,16 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_baseline_lock_24" />
+                                android:src="@drawable/ic_baseline_history_24" />
 
                             <TextView
+                                android:fontFamily="@font/mlight"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="Ubah Password"
+                                android:text="Riwayat Pesanan"
                                 android:textColor="@color/hitam" />
+
 
                         </LinearLayout>
 
@@ -154,40 +150,6 @@
                             android:layout_alignParentRight="true"
                             android:src="@drawable/ic_baseline_chevron_right_24" />
 
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
-                        android:gravity="center_vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_notifications_black_24dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:text="Notifikasi"
-                                android:textColor="@color/hitam" />
-
-                        </LinearLayout>
-
-                        <Switch
-                            android:id="@+id/swt_notif"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true" />
 
                     </RelativeLayout>
 
@@ -211,6 +173,7 @@
                     android:paddingVertical="20dp">
 
                     <RelativeLayout
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:id="@+id/btn_riwayat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -226,13 +189,14 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_baseline_history_24" />
+                                android:src="@drawable/ic_baseline_info_24" />
 
                             <TextView
+                                android:fontFamily="@font/mlight"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="Riwayat belanja"
+                                android:text="Panduan"
                                 android:textColor="@color/hitam" />
 
                         </LinearLayout>
@@ -246,6 +210,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:id="@+id/btn_keranjang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -262,13 +227,14 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_baseline_shopping_cart_24" />
+                                android:src="@drawable/ic_baseline_sticky_note_2_24" />
 
                             <TextView
+                                android:fontFamily="@font/mlight"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="Daftar Keranjang"
+                                android:text="Syarat dan Ketentuan"
                                 android:textColor="@color/hitam" />
 
                         </LinearLayout>
@@ -282,6 +248,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:id="@+id/btn_wishlist"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -298,13 +265,14 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_baseline_favorite_24" />
+                                android:src="@drawable/ic_baseline_privacy_tip_24" />
 
                             <TextView
+                                android:fontFamily="@font/mlight"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="Wish List"
+                                android:text="Kebijakan Privasi"
                                 android:textColor="@color/hitam" />
 
                         </LinearLayout>
@@ -318,6 +286,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:id="@+id/btn_settingAlamat"
                         android:layout_marginTop="20dp"
                         android:layout_width="match_parent"
@@ -334,13 +303,14 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_baseline_map_24" />
+                                android:src="@drawable/ic_baseline_help_24" />
 
                             <TextView
+                                android:fontFamily="@font/mlight"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="Pengaturan Alamat"
+                                android:text="Pertanyaan Umum"
                                 android:textColor="@color/hitam" />
 
                         </LinearLayout>
@@ -373,6 +343,7 @@
                     android:paddingVertical="20dp">
 
                     <RelativeLayout
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:id="@+id/btn_tentang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -388,9 +359,10 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_baseline_business_24" />
+                                android:src="@drawable/ic_baseline_person_outline_24" />
 
                             <TextView
+                                android:fontFamily="@font/mlight"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
@@ -416,6 +388,8 @@
                         android:gravity="center_vertical">
 
                         <LinearLayout
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:id="@+id/btn_logout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
@@ -424,22 +398,17 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_baseline_help_24" />
+                                android:src="@drawable/ic_baseline_logout_24" />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:fontFamily="@font/mlight"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="Bantuan"
-                                android:textColor="@color/hitam" />
+                                android:text="Keluar"
+                                android:textColor="@color/merah" />
 
                         </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:src="@drawable/ic_baseline_chevron_right_24" />
 
                     </RelativeLayout>
 
@@ -448,17 +417,8 @@
 
             </androidx.cardview.widget.CardView>
 
-            <Button
-                android:backgroundTint="@color/putih"
-                android:layout_marginTop="25dp"
-                android:textColor="@color/hitam"
-                android:id="@+id/btn_logout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="LOGOUT"/>
-
             <TextView
+                android:fontFamily="@font/mlight"
                 android:textSize="12dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"

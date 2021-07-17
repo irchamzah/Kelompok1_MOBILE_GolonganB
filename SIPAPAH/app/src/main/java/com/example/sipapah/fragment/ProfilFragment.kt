@@ -6,10 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.example.sipapah.MainActivity
 import com.example.sipapah.R
 import com.example.sipapah.activity.LoginActivity
@@ -24,7 +21,7 @@ import com.example.sipapah.helper.SharedPref
 class ProfilFragment : Fragment() {
 
     lateinit var sp:SharedPref
-    lateinit var btnLogout:Button
+    lateinit var btnLogout:LinearLayout
 
     lateinit var tvNama:TextView
     lateinit var tvEmail:TextView

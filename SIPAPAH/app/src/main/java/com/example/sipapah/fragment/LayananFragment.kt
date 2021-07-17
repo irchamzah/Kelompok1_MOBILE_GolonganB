@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sipapah.R
@@ -31,7 +32,7 @@ import retrofit2.Response
  */
 class LayananFragment : Fragment() {
 
-    lateinit var btnPesan: Button
+    lateinit var btnPesan: LinearLayout
 
     lateinit var sp: SharedPref
 
