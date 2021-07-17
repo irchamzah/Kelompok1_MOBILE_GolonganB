@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_500"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="-3dp" />
+
+        <Button
+            android:id="@+id/button17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="Logout"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="114dp" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="180dp"
+            android:layout_height="52dp"
+            android:layout_marginEnd="212dp"
+            android:text="Mulai membuat pesanan >"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="456dp" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="180dp"
+            android:layout_height="52dp"
+            android:layout_marginEnd="212dp"
+            android:text="Lihat riwayat pesanan"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="508dp" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="Profil"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="73dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="107dp"
+            android:layout_height="57dp"
+            android:layout_marginEnd="152dp"
+            android:text="Layanan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:rippleColor="#171717"
+            tools:layout_editor_absoluteY="679dp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="107dp"
+            android:layout_height="57dp"
+            android:layout_marginEnd="304dp"
+            android:text="Home"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="679dp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="116dp"
+            android:layout_height="60dp"
+            android:text="Daur Ulang"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="679dp" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="Profil"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="73dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="106dp"
+            android:layout_height="26dp"
+            android:text="LAYANAN"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.483"
+            tools:layout_editor_absoluteX="26dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="156dp"
+            android:layout_height="70dp"
+            android:text="Di fitur layanan ini , kami memberikan jasa untuk menjemput sampah"
+            tools:layout_editor_absoluteX="26dp"
+            tools:layout_editor_absoluteY="368dp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_launcher_background"
+            tools:layout_editor_absoluteX="167dp"
+            tools:layout_editor_absoluteY="144dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SIPAPAH"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
