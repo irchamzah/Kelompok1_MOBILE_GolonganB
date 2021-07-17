@@ -31,26 +31,7 @@ class LayananActivity : AppCompatActivity() {
 
         sp = SharedPref(this)
 
-        btn_buatpesanan.setOnClickListener{
-            buatpesanan()
-        }
-
-        //Calendar
-        val c = Calendar.getInstance()
-        val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
-        val day = c.get(Calendar.DAY_OF_MONTH)
-
-        //button click to show DatePickerDialog
-        btn_tanggalJemput.setOnClickListener{
-            val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view, mYear, mMonth, mDay ->
-                //set to text view
-                val mmMonth = mMonth+1
-                tv_tanggaljemput.setText(""+mYear+"-"+mmMonth+"-"+mDay)
-            }, year, month, day)
-            //show dialog
-            dpd.show()
-        }
+        mainbutton()
 
         //set Toolbar
         setSupportActionBar(toolbar)
@@ -60,11 +41,14 @@ class LayananActivity : AppCompatActivity() {
 
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return super.onSupportNavigateUp()
-    }
+    fun mainbutton(){
+        btn_buatpesanan.setOnClickListener{
+            buatpesanan()
+        }
 
+        dialogpilihtanggal()
+
+    }
 
     fun buatpesanan(){
 
@@ -124,5 +108,33 @@ class LayananActivity : AppCompatActivity() {
 
 
     }
+
+    fun dialogpilihtanggal(){
+        //Calendar
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+
+        //button click to show DatePickerDialog
+        btn_tanggalJemput.setOnClickListener{
+            val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view, mYear, mMonth, mDay ->
+                //set to text view
+                val mmMonth = mMonth+1
+                tv_tanggaljemput.setText(""+mYear+"-"+mmMonth+"-"+mDay)
+            }, year, month, day)
+            //show dialog
+            dpd.show()
+        }
+
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
+    }
+
+
+
 
 }

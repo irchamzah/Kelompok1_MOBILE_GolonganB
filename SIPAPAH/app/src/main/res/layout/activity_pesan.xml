@@ -13,7 +13,6 @@
 
     <LinearLayout
         android:layout_margin="15dp"
-        android:padding="15dp"
         android:layout_centerInParent="true"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -30,7 +29,7 @@
                 android:layout_margin="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_profil"/>
+                android:src="@drawable/ic_kreasi"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -39,10 +38,11 @@
 
 
                 <EditText
+                    android:fontFamily="@font/mlight"
                     android:id="@+id/edt_kategori"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
+                    android:background="@color/putih"
                     android:hint="Pilih Jenis Sampah (ketik 1/2/3)"
                     android:inputType="text"
                     android:singleLine="true"
@@ -63,17 +63,18 @@
                 android:layout_margin="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_email_24"/>
+                android:src="@drawable/ic_baseline_image_24"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:fontFamily="@font/mlight"
                     android:id="@+id/edt_upfoto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
+                    android:background="@color/putih"
                     android:hint="Upload Foto Sampah (sementara ketik aja a.jpg)"
                     android:inputType="text"
                     android:singleLine="true"
@@ -94,15 +95,15 @@
                 android:layout_margin="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_email_24"/>
+                android:src="@drawable/ic_baseline_calendar_today_24"/>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
 
                 <Button
+                    android:fontFamily="@font/mbold"
                     android:gravity="center"
                     android:id="@+id/btn_tanggalJemput"
                     android:layout_width="match_parent"
@@ -110,8 +111,10 @@
                     android:backgroundTint="@color/putih"
                     android:hint="Pilih Tanggal Jemput"/>
 
-                    <EditText
-                        android:gravity="center"
+                <TextView
+                    android:background="@color/putih"
+                    android:fontFamily="@font/mlight"
+                    android:gravity="center"
                     android:id="@+id/tv_tanggaljemput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -132,17 +135,18 @@
                 android:layout_margin="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_email_24"/>
+                android:src="@drawable/ic_baseline_note_alt_24"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:fontFamily="@font/mlight"
                     android:id="@+id/edt_keterangan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
+                    android:background="@color/putih"
                     android:hint="Keterangan (pesan untuk pengepul)"
                     android:inputType="text"/>
 
@@ -151,6 +155,7 @@
         </LinearLayout>
 
         <Button
+            android:fontFamily="@font/mmedium"
             android:layout_margin="30dp"
             android:id="@+id/btn_buatpesanan"
             android:backgroundTint="@color/hijau2"

@@ -13,6 +13,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:fontFamily="@font/mmedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SIPAPAH"
@@ -22,26 +23,70 @@
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/text_dashboard"
+    <LinearLayout
+        android:paddingHorizontal="10dp"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:text="layanan"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:textColor="@color/hitam"
-        android:backgroundTint="@color/putih"
-        android:id="@+id/btn_pesanan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Buat Pesanan"/>
+
+        <TextView
+            android:fontFamily="@font/mbold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="LAYANAN"
+            android:textStyle="bold"
+            android:textColor="@color/hitam"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:fontFamily="@font/mmedium"
+            android:layout_margin="10dp"
+            android:textColor="@color/abuabugelap"
+            android:text="Di fitur Layanan, kami memberikan jasa untuk menjemput Sampah "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RelativeLayout
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/btn_tentang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:foreground="?android:attr/selectableItemBackground"
+                android:id="@+id/btn_pesanan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_pesan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:text="Mulai membuat pesanan"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/hitam"/>
+
+                <ImageView
+                    android:layout_alignRight="@+id/tv_pesan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_chevron_right_24" />
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
 </LinearLayout>

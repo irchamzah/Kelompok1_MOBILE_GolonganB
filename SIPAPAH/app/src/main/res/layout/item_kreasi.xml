@@ -19,6 +19,7 @@
             android:src="@drawable/ic_launcher_foreground"/>
 
         <TextView
+            android:fontFamily="@font/mbold"
             android:textColor="@color/hitam"
             android:id="@+id/tv_nama"
             android:layout_width="wrap_content"
@@ -32,6 +33,7 @@
             android:text="Nama Tutorial"/>
 
         <TextView
+            android:fontFamily="@font/mmedium"
             android:textColor="@color/abuabugelap"
             android:layout_marginHorizontal="5dp"
             android:layout_marginTop="8dp"

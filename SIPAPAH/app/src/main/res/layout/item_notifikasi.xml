@@ -14,6 +14,7 @@
 
 
         <TextView
+            android:fontFamily="@font/mmedium"
             android:textStyle="bold"
             android:textSize="15dp"
             android:foreground="?android:attr/selectableItemBackground"
@@ -29,12 +30,12 @@
             android:text="Judul Notifikasi"/>
 
         <TextView
+            android:fontFamily="@font/mlight"
             android:textColor="@color/abuabugelap"
             android:layout_marginHorizontal="5dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="10dp"
             android:id="@+id/tv_keteranganNotifikasi"
-            android:lines="3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Keterangan notifikasi"/>
