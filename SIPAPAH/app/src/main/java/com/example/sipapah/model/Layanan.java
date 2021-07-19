@@ -5,9 +5,13 @@ import java.io.Serializable;
 public class Layanan implements Serializable {
 
     public int id;
-    public int category;
-    public String file;
+    public String layanan_id;
+    public String category_id;
+    public String user_id;
     public String tanggaljemput;
     public String keterangan;
+    public String status_id;
+    public String pendapatan;
+    public String path;
 
 }
