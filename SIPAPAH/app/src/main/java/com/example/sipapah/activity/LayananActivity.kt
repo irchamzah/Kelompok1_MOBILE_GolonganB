@@ -35,6 +35,7 @@ import retrofit2.Response
 import java.io.File
 import java.util.*
 
+//R
 
 class LayananActivity : AppCompatActivity() {
 
@@ -75,6 +76,7 @@ class LayananActivity : AppCompatActivity() {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             finish()
+            pb_loading.visibility = View.GONE
             toast("Berhasil Memesan!")
         })
 
@@ -120,13 +122,7 @@ class LayananActivity : AppCompatActivity() {
             edt_kategori.requestFocus()
             return
 
-        } else if(edt_upfoto.text.isEmpty()) {
-
-            edt_upfoto.error = "Kolom Foto Tidak Boleh Kosong"
-            edt_upfoto.requestFocus()
-            return
-
-        } else if(tv_tanggaljemput.text.isEmpty()) {
+        }else if(tv_tanggaljemput.text.isEmpty()) {
 
             tv_tanggaljemput.error = "Kolom tanggal Tidak Boleh Kosong"
             tv_tanggaljemput.requestFocus()
@@ -155,7 +151,7 @@ class LayananActivity : AppCompatActivity() {
         }
         vm.create(layanan, fileImage!!)
 
-        pb_loading.visibility = View.GONE
+
 
     }
 
@@ -165,6 +161,7 @@ class LayananActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         EasyImage.handleActivityResult(requestCode, resultCode, data, this, object: DefaultCallback() {
             override fun onImagePicked(imageFile: File?, source: EasyImage.ImageSource?, type: Int) {
+
                 fileImage =  imageFile
                 Picasso.get()
                     .load(imageFile!!)
@@ -175,6 +172,38 @@ class LayananActivity : AppCompatActivity() {
         })
 
 
+
+    }
+
+    fun dialogpilihtanggal(){
+        //Calendar
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+
+        //button click to show DatePickerDialog
+        btn_tanggalJemput.setOnClickListener{
+            val dpd = DatePickerDialog(
+                this,
+                DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
+                    //set to text view
+                    val mmMonth = mMonth + 1
+                    tv_tanggaljemput.setText("" + mYear + "-" + mmMonth + "-" + mDay)
+                },
+                year,
+                month,
+                day
+            )
+            //show dialog
+            dpd.show()
+        }
+
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 
 
@@ -259,36 +288,7 @@ class LayananActivity : AppCompatActivity() {
 //
 //    }
 
-    fun dialogpilihtanggal(){
-        //Calendar
-        val c = Calendar.getInstance()
-        val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
-        val day = c.get(Calendar.DAY_OF_MONTH)
 
-        //button click to show DatePickerDialog
-        btn_tanggalJemput.setOnClickListener{
-            val dpd = DatePickerDialog(
-                this,
-                DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
-                    //set to text view
-                    val mmMonth = mMonth + 1
-                    tv_tanggaljemput.setText("" + mYear + "-" + mmMonth + "-" + mDay)
-                },
-                year,
-                month,
-                day
-            )
-            //show dialog
-            dpd.show()
-        }
-
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return super.onSupportNavigateUp()
-    }
 
 //    private fun showLoading(){
 //        alertDialog.show()
