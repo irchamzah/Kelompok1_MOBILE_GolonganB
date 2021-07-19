@@ -1,7 +1,7 @@
 package com.example.sipapah.app
 
-import com.google.gson.GsonBuilder
 //import com.inyongtisto.tokoonline.util.Config
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -34,3 +34,18 @@ object ApiConfig {
     val instanceRetrofit: ApiService
         get() = client.create(ApiService::class.java)
 }
+
+
+//object ApiConfig {
+//    var retrofit: Retrofit? = null
+//        get() {
+//            val okHttpClient = OkHttpClient.Builder().build()
+//            if (field == null) {
+//                field = Retrofit.Builder().baseUrl(BASE_URL)
+//                    .addConverterFactory(GsonConverterFactory.create()).client(okHttpClient).build()
+//            }
+//            return field
+//        }
+//        private set
+//    private const val BASE_URL = "http://192.168.1.2/Kelompok1_WEB_GolonganB/public/api/"
+//}
