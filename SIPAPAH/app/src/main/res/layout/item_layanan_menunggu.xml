@@ -73,7 +73,7 @@
                 android:textSize="13dp"
                 android:layout_margin="5dp"
                 android:fontFamily="@font/mmedium"
-                android:textColor="@color/abuabugelap"
+                android:textColor="@color/birutua"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Menunggu Konfirmasi"/>

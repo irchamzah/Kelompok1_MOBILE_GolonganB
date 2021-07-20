@@ -191,7 +191,7 @@
             android:backgroundTint="@color/hijau2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Buat Pesanan"/>
+            android:text="Perbarui Pesanan"/>
 
     </LinearLayout>
 

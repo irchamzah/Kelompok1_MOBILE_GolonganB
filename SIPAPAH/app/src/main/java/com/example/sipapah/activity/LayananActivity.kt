@@ -11,7 +11,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.sipapah.MainActivity
 import com.example.sipapah.R
 import com.example.sipapah.helper.SharedPref
 import com.example.sipapah.layananActivity.LayananViewModel
@@ -20,12 +19,8 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_pesan.*
 import kotlinx.android.synthetic.main.fragment_layanan.*
 import kotlinx.android.synthetic.main.toolbar.*
-import okhttp3.RequestBody
 import pl.aprilapps.easyphotopicker.DefaultCallback
 import pl.aprilapps.easyphotopicker.EasyImage
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.io.File
 import java.util.*
 
@@ -45,8 +40,7 @@ class LayananActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pesan)
 
         btnFoto = findViewById(R.id.btn_foto)
-        imgFoto = findViewById(R.id.img_foto
-        )
+        imgFoto = findViewById(R.id.img_foto)
         sp = SharedPref(this)
         vm = ViewModelProvider(this).get(LayananViewModel::class.java)
 
@@ -55,6 +49,88 @@ class LayananActivity : AppCompatActivity() {
         setToolbar()
 
 
+    }
+
+    fun mainbutton(){
+        dialogpilihtanggal()
+
+        btn_foto.setOnClickListener{
+            EasyImage.openGallery(this, 1)
+        }
+        btn_buatpesanan.setOnClickListener{
+            simpan()
+        }
+    }
+
+    private fun simpan(){
+        if(edt_kategori.text.isEmpty()){
+            edt_kategori.error = "Kolom Kategori Tidak Boleh Kosong"
+            edt_kategori.requestFocus()
+            return
+        }else if(tv_tanggaljemput.text.isEmpty()) {
+            tv_tanggaljemput.error = "Kolom tanggal Tidak Boleh Kosong"
+            tv_tanggaljemput.requestFocus()
+            return
+        } else if(edt_keterangan.text.isEmpty()) {
+            edt_keterangan.error = "Kolom keterangan Tidak Boleh Kosong"
+            edt_keterangan.requestFocus()
+            return
+        }
+        pb_loading.visibility = View.VISIBLE
+
+        val id = sp.getUser()!!.id
+        val layanan = Layanan()
+        layanan.id = id
+        layanan.category_id = edt_kategori.text.toString()
+        layanan.tanggaljemput = tv_tanggaljemput.text.toString()
+        layanan.keterangan = edt_keterangan.text.toString()
+        if(fileImage == null){
+            Toast.makeText(this, "Pilih Gambar Terlebih Dahulu", Toast.LENGTH_SHORT).show()
+            return
+        }
+        vm.create(layanan, fileImage!!)
+    }
+
+    var fileImage: File? = null
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        EasyImage.handleActivityResult(requestCode, resultCode, data, this, object: DefaultCallback() {
+            override fun onImagePicked(imageFile: File?, source: EasyImage.ImageSource?, type: Int) {
+
+                fileImage =  imageFile
+                Picasso.get()
+                    .load(imageFile!!).resize(500,500)
+                        .centerInside()
+                    .placeholder(R.drawable.sipapa_hijau)
+                    .error(R.drawable.sipapa_hijau)
+                    .into(img_foto)
+            }
+        })
+    }
+
+    fun dialogpilihtanggal(){
+        //Calendar
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+
+        //button click to show DatePickerDialog
+        btn_tanggalJemput.setOnClickListener{
+            val dpd = DatePickerDialog(
+                this,
+                DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
+                    //set to text view
+                    val mmMonth = mMonth + 1
+                    tv_tanggaljemput.setText("" + mYear + "-" + mmMonth + "-" + mDay)
+                },
+                year,
+                month,
+                day
+            )
+            //show dialog
+            dpd.show()
+        }
     }
 
     fun obeservers(){
@@ -90,109 +166,6 @@ class LayananActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return super.onSupportNavigateUp()
-    }
-
-
-    fun mainbutton(){
-
-        dialogpilihtanggal()
-
-        btn_foto.setOnClickListener{
-            EasyImage.openGallery(this, 1)
-        }
-        btn_buatpesanan.setOnClickListener{
-//            buatpesanan()
-            simpan()
-        }
-
-    }
-
-    private fun simpan(){
-
-
-        if(edt_kategori.text.isEmpty()){
-
-            edt_kategori.error = "Kolom Kategori Tidak Boleh Kosong"
-            edt_kategori.requestFocus()
-            return
-
-        }else if(tv_tanggaljemput.text.isEmpty()) {
-
-            tv_tanggaljemput.error = "Kolom tanggal Tidak Boleh Kosong"
-            tv_tanggaljemput.requestFocus()
-
-        } else if(edt_keterangan.text.isEmpty()) {
-
-            edt_keterangan.error = "Kolom keterangan Tidak Boleh Kosong"
-            edt_keterangan.requestFocus()
-            return
-
-        }
-
-        pb_loading.visibility = View.VISIBLE
-
-
-        val id = sp.getUser()!!.id
-
-        val layanan = Layanan()
-        layanan.id = id
-        layanan.category_id = edt_kategori.text.toString()
-        layanan.tanggaljemput = tv_tanggaljemput.text.toString()
-        layanan.keterangan = edt_keterangan.text.toString()
-        if(fileImage == null){
-            Toast.makeText(this, "Pilih Gambar Terlebih Dahulu", Toast.LENGTH_SHORT).show()
-            return
-        }
-        vm.create(layanan, fileImage!!)
-
-
-
-    }
-
-
-    var fileImage: File? = null
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        EasyImage.handleActivityResult(requestCode, resultCode, data, this, object: DefaultCallback() {
-            override fun onImagePicked(imageFile: File?, source: EasyImage.ImageSource?, type: Int) {
-
-                fileImage =  imageFile
-                Picasso.get()
-                    .load(imageFile!!).resize(500,500).centerInside()
-                    .placeholder(R.drawable.sipapa_hijau)
-                    .error(R.drawable.sipapa_hijau)
-                    .into(img_foto)
-            }
-        })
-
-
-
-    }
-
-    fun dialogpilihtanggal(){
-        //Calendar
-        val c = Calendar.getInstance()
-        val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
-        val day = c.get(Calendar.DAY_OF_MONTH)
-
-        //button click to show DatePickerDialog
-        btn_tanggalJemput.setOnClickListener{
-            val dpd = DatePickerDialog(
-                this,
-                DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
-                    //set to text view
-                    val mmMonth = mMonth + 1
-                    tv_tanggaljemput.setText("" + mYear + "-" + mmMonth + "-" + mDay)
-                },
-                year,
-                month,
-                day
-            )
-            //show dialog
-            dpd.show()
-        }
-
     }
 
 

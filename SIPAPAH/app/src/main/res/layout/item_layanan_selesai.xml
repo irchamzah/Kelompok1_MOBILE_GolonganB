@@ -93,6 +93,15 @@
                     android:text="Mendapatkan: "/>
 
                 <TextView
+                    android:textSize="13dp"
+                    android:layout_margin="5dp"
+                    android:fontFamily="@font/mbold"
+                    android:textColor="@color/hijau2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Rp."/>
+
+                <TextView
                     android:id="@+id/tv_layanan_selesai_pendapatan"
                     android:textSize="13dp"
                     android:layout_margin="5dp"
@@ -100,7 +109,7 @@
                     android:textColor="@color/hijau2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" Rp. 0"/>
+                    android:text=" 0"/>
 
 
             </LinearLayout>

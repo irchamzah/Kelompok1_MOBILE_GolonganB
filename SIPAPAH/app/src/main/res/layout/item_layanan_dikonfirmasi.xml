@@ -9,14 +9,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/ic_layanan_dikonfirmasi_edit"
-        android:layout_margin="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/ic_baseline_edit_24" />
-
     <LinearLayout
         android:layout_margin="15dp"
         android:orientation="horizontal"
