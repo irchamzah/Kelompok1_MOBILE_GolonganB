@@ -28,6 +28,33 @@ interface ApiService{
             @Path("id") id: Int
     ):Call<ResponModel>
 
+    @Multipart
+    @POST("layanan/riwayat/menunggu/update/{id}")
+    fun setlayananedit(
+
+            @Path("id") id: Int,
+            @Part("category_id") category_id: RequestBody,
+            @Part("tanggaljemput") tanggaljemput: RequestBody,
+            @Part("keterangan") keterangan: RequestBody,
+            @Part path: MultipartBody.Part? = null,
+
+            ): Call<ResponModel>
+
+    @GET("layanan/riwayat/dikonfirmasi/{id}")
+    fun getlayanandikonfirmasi(
+            @Path("id") id: Int
+    ):Call<ResponModel>
+
+    @GET("layanan/riwayat/selesai/{id}")
+    fun getlayananselesai(
+            @Path("id") id: Int
+    ):Call<ResponModel>
+
+    @GET("layanan/riwayat/ditolak/{id}")
+    fun getlayananditolak(
+            @Path("id") id: Int
+    ):Call<ResponModel>
+
     @FormUrlEncoded
     @POST("register")
     fun register(

@@ -3,6 +3,7 @@ package com.example.sipapah.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sipapah.R
@@ -11,6 +12,7 @@ import com.example.sipapah.app.ApiConfig
 import com.example.sipapah.helper.SharedPref
 import com.example.sipapah.model.Layanan
 import com.example.sipapah.model.ResponModel
+import kotlinx.android.synthetic.main.activity_pesan.*
 import kotlinx.android.synthetic.main.toolbar.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -39,7 +41,7 @@ class LayananMenungguActivity : AppCompatActivity() {
     private var listLayananMenunggu: ArrayList<Layanan> = ArrayList()
 
     fun getLayananMenunggu() {
-
+        pb_loading.visibility = View.VISIBLE
         if(sp.getUser() == null){
             val intent = Intent(this, LoginActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -63,15 +65,13 @@ class LayananMenungguActivity : AppCompatActivity() {
     }
 
     fun displayLayananMenunggu() {
-
-
-
-
         var layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
 
         rvLayananMenunggu.adapter = AdapterLayananMenunggu(this,listLayananMenunggu)
         rvLayananMenunggu.layoutManager = layoutManager
+
+        pb_loading.visibility = View.GONE
 
     }
 

@@ -11,15 +11,8 @@ class SharedPref(activity: Activity) {
 
     val login = "login"
 
-//    val name = "name"
-//    val email = "email"
-//    val foto = "foto"
-//    val alamat = "alamat"
-//    val nohp = "nohp"
-
     val user = "user"
     val layanan = "layanan"
-//    val layanans = "layanans"
 
     val mypref = "MAIN_PRF"
     val sp:SharedPreferences

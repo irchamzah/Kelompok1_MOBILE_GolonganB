@@ -44,7 +44,6 @@ class AdapterLayananMenunggu(var activity: Context, var arrDataLayananMenunggu:A
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-
         var kategoriid = arrDataLayananMenunggu[position].category_id
         if(kategoriid == "1"){
             namakategori = "Kertas"
@@ -64,9 +63,6 @@ class AdapterLayananMenunggu(var activity: Context, var arrDataLayananMenunggu:A
         } else if (statusid == "4"){
             namastatus = "Ditolak"
         }
-
-
-
 
         val image = "http://192.168.1.25/Kelompok1_WEB_GolonganB/public/storage/"+arrDataLayananMenunggu[position].file
         Picasso.get()
