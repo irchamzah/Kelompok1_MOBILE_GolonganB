@@ -23,12 +23,11 @@ class DetailKreasiActivity : AppCompatActivity() {
 
         // Set Value
         tv_judul.text = kreasi.nama
-        val foto = "http://192.168.1.2/Kelompok1_WEB_GolonganB/public/storage/"+kreasi.foto
+        val foto = "http://192.168.1.25/Kelompok1_WEB_GolonganB/public/storage/"+kreasi.foto
         Picasso.get()
-            .load(foto)
+            .load(foto).resize(500,500).centerInside()
             .placeholder(R.drawable.sipapa_hijau)
             .error(R.drawable.sipapa_hijau)
-//            .resize(400,400)
             .into(image)
         tv_keterangan.text = kreasi.keterangan
         tv_keteranganDetail.text = kreasi.keterangan_detail

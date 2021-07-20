@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ic_layanan_selesai_hapus"
+        android:layout_margin="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_baseline_delete_24" />
+
+    <LinearLayout
+        android:layout_margin="15dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:padding="20dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/img_layanan_selesai"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_launcher_foreground"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_margin="5dp"
+                android:fontFamily="@font/mbold"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:textColor="@color/hitam"
+                android:id="@+id/tv_layanan_selesai_kategori"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:text="Kategori"/>
+
+            <TextView
+                android:textSize="10dp"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/mmedium"
+                android:textColor="@color/abuabugelap"
+                android:id="@+id/tv_layanan_selesai_tanggaljemput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tanggal Jemput"/>
+
+            <TextView
+                android:id="@+id/tv_layanan_selesai_keterangan_"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/mmedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Keterangan Pesanan"/>
+
+            <TextView
+                android:id="@+id/tv_layanan_selesai_status"
+                android:textSize="13dp"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/mmedium"
+                android:textColor="@color/hijau2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selesai"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="13dp"
+                    android:layout_margin="5dp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/abuabugelap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mendapatkan: "/>
+
+                <TextView
+                    android:id="@+id/tv_layanan_selesai_pendapatan"
+                    android:textSize="13dp"
+                    android:layout_margin="5dp"
+                    android:fontFamily="@font/mbold"
+                    android:textColor="@color/hijau2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Rp. 0"/>
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+
+
+
+</androidx.cardview.widget.CardView>

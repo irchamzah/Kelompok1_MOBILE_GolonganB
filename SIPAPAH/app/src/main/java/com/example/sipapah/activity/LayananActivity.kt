@@ -1,6 +1,5 @@
 package com.example.sipapah.activity
 
-import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
@@ -10,22 +9,17 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.solver.widgets.Helper
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.sipapah.MainActivity
 import com.example.sipapah.R
-import com.example.sipapah.app.ApiConfig
 import com.example.sipapah.helper.SharedPref
 import com.example.sipapah.layananActivity.LayananViewModel
 import com.example.sipapah.model.Layanan
-import com.example.sipapah.model.ResponModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_pesan.*
 import kotlinx.android.synthetic.main.fragment_layanan.*
 import kotlinx.android.synthetic.main.toolbar.*
-import okhttp3.MediaType
-import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import pl.aprilapps.easyphotopicker.DefaultCallback
 import pl.aprilapps.easyphotopicker.EasyImage
@@ -43,7 +37,6 @@ class LayananActivity : AppCompatActivity() {
     lateinit var sp:SharedPref
     lateinit var btnFoto:Button
     lateinit var imgFoto:ImageView
-//    lateinit var alertDialog: AlertDialog
 
     private val viewModel: LayananActivity by viewModels()
 
@@ -56,7 +49,6 @@ class LayananActivity : AppCompatActivity() {
         )
         sp = SharedPref(this)
         vm = ViewModelProvider(this).get(LayananViewModel::class.java)
-//        alertDialog = MyAlert.loading(this)
 
         mainbutton()
         obeservers()
@@ -67,23 +59,20 @@ class LayananActivity : AppCompatActivity() {
 
     fun obeservers(){
         vm.mData.observe(this, Observer {
-            toast("Berhasil"+it.message)
-
-        })
-
-        vm.onFailure.observe(this, Observer {
-            val intent =Intent(this@LayananActivity, MainActivity::class.java)
+            toast(""+it.message)
+            val intent =Intent(this@LayananActivity, LayananMenungguActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             finish()
             pb_loading.visibility = View.GONE
-            toast("Berhasil Memesan!")
+
         })
 
-//        vm.showProgress.observe(this, Observer {
-//            if(it) showLoading()
-//            else dismissLoading()
-//        })
+        vm.onFailure.observe(this, Observer {
+            pb_loading.visibility = View.GONE
+            toast("error: $it")
+        })
+
     }
 
     private fun toast(string: String){
@@ -96,6 +85,11 @@ class LayananActivity : AppCompatActivity() {
         supportActionBar!!.title = "Buat Pesanan" // !! adalah null Exception
         supportActionBar!!.setDisplayShowHomeEnabled(true)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 
 
@@ -164,7 +158,7 @@ class LayananActivity : AppCompatActivity() {
 
                 fileImage =  imageFile
                 Picasso.get()
-                    .load(imageFile!!)
+                    .load(imageFile!!).resize(500,500).centerInside()
                     .placeholder(R.drawable.sipapa_hijau)
                     .error(R.drawable.sipapa_hijau)
                     .into(img_foto)
@@ -201,10 +195,7 @@ class LayananActivity : AppCompatActivity() {
 
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return super.onSupportNavigateUp()
-    }
+
 
 
 //    fun buatpesanan(){

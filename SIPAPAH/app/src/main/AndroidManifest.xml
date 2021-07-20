@@ -29,8 +29,14 @@
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.DetailKreasiActivity" />
         <activity android:name=".activity.LayananActivity" />
+        <activity android:name=".activity.LayananDibatalkanActivity" />
+        <activity android:name=".activity.LayananDikonfirmasiActivity" />
+        <activity android:name=".activity.LayananDitolakActivity" />
+        <activity android:name=".activity.LayananMenungguActivity" />
+        <activity android:name=".activity.LayananSelesaiActivity" />
+        <activity android:name=".activity.LayananMenungguEditActivity" />
 
-<!--        <provider-->
+        <!--        <provider-->
 <!--            android:authorities="com.example.sipapah.fileprovider"-->
 <!--            android:name="androidx.core.content.FileProvider"-->
 <!--            android:exported="false"-->
