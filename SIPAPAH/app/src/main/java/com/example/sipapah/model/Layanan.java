@@ -8,6 +8,7 @@ public class Layanan implements Serializable {
     public String layanan_id;
     public String category_id;
     public String user_id;
+    public String file;
     public String tanggaljemput;
     public String keterangan;
     public String status_id;

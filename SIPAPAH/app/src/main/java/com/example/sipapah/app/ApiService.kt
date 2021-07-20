@@ -23,6 +23,11 @@ interface ApiService{
 
             ): Call<ResponModel>
 
+    @GET("layanan/riwayat/menunggu/{id}")
+    fun getlayanan(
+            @Path("id") id: Int
+    ):Call<ResponModel>
+
     @FormUrlEncoded
     @POST("register")
     fun register(
@@ -51,6 +56,8 @@ interface ApiService{
     fun getnotifikasi(
         @Path("id") id: Int
     ):Call<ResponModel>
+
+
 
 
 

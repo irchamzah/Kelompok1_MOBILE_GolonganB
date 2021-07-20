@@ -16,8 +16,6 @@ import java.io.File
 
 class LayananRepository(var application: Application){
 
-
-
     lateinit var sp:SharedPref
 
     val showProgress = MutableLiveData<Boolean>()
@@ -29,8 +27,6 @@ class LayananRepository(var application: Application){
     }
 
     fun create(data: Layanan, file: File){
-
-
         val id = data.id
         val categoryId = convert(data.category_id)
         val tanggalJemput = convert(data.tanggaljemput)
@@ -39,10 +35,6 @@ class LayananRepository(var application: Application){
         val fileImage = convertFile(file)
 
         ApiConfig.instanceRetrofit.setmemesan(id,categoryId,tanggalJemput,dataKeterangan, fileImage).enqueue(object : Callback<ResponModel> {
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                showProgress.value = false
-                onFailure.value = t.message
-            }
 
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 if(response.isSuccessful) {
@@ -50,14 +42,19 @@ class LayananRepository(var application: Application){
                     if (res.success == 1){
 
                         mData.value = res
-                    }
-                    else {
+                    } else {
                         onFailure.value = res.message
                     }
                 } else {
                     onFailure.value = response.message()
                 }
             }
+
+            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                showProgress.value = false
+                onFailure.value = t.message
+            }
+
         })
 
     }

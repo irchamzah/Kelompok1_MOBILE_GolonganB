@@ -19,8 +19,7 @@ class SharedPref(activity: Activity) {
 
     val user = "user"
     val layanan = "layanan"
-
-
+//    val layanans = "layanans"
 
     val mypref = "MAIN_PRF"
     val sp:SharedPreferences

@@ -11,9 +11,7 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sipapah.R
-import com.example.sipapah.activity.LayananActivity
-import com.example.sipapah.activity.LoginActivity
-import com.example.sipapah.activity.RegisterActivity
+import com.example.sipapah.activity.*
 import com.example.sipapah.adapter.AdapterKreasiLengkap
 import com.example.sipapah.app.ApiConfig
 import com.example.sipapah.helper.SharedPref
@@ -33,6 +31,10 @@ import retrofit2.Response
 class LayananFragment : Fragment() {
 
     lateinit var btnPesan: LinearLayout
+    lateinit var btnMenunggu: LinearLayout
+    lateinit var btnDikonfirmasi: LinearLayout
+    lateinit var btnSelesai: LinearLayout
+    lateinit var btnDitolak: LinearLayout
 
     lateinit var sp: SharedPref
 
@@ -49,6 +51,23 @@ class LayananFragment : Fragment() {
         btnPesan = view.findViewById(R.id.btn_pesanan)
         btnPesan.setOnClickListener{
             startActivity(Intent(requireActivity(), LayananActivity::class.java))
+        }
+
+        btnMenunggu = view.findViewById(R.id.btn_menunggu)
+        btnMenunggu.setOnClickListener{
+            startActivity(Intent(requireActivity(), LayananMenungguActivity::class.java))
+        }
+        btnDikonfirmasi = view.findViewById(R.id.btn_dikonfirmasi)
+        btnDikonfirmasi.setOnClickListener{
+            startActivity(Intent(requireActivity(), LayananDikonfirmasiActivity::class.java))
+        }
+        btnSelesai = view.findViewById(R.id.btn_selesai)
+        btnSelesai.setOnClickListener{
+            startActivity(Intent(requireActivity(), LayananSelesaiActivity::class.java))
+        }
+        btnDitolak = view.findViewById(R.id.btn_Ditolak)
+        btnDitolak.setOnClickListener{
+            startActivity(Intent(requireActivity(), LayananDitolakActivity::class.java))
         }
 
         return view
