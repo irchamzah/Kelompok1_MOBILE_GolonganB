@@ -40,6 +40,20 @@ interface ApiService{
 
             ): Call<ResponModel>
 
+    @Multipart
+    @POST("layanan/riwayat/menunggu/hapus/{id}")
+    fun hapuslayananedit(
+            @Path("id") id: Int,
+            @Part("file") file: RequestBody,
+            ): Call<ResponModel>
+
+    @Multipart
+    @POST("layanan/riwayat/selesai/hapus/{id}")
+    fun hapuslayananselesai(
+            @Path("id") id: Int,
+            @Part("file") file: String,
+    ): Call<ResponModel>
+
     @GET("layanan/riwayat/dikonfirmasi/{id}")
     fun getlayanandikonfirmasi(
             @Path("id") id: Int

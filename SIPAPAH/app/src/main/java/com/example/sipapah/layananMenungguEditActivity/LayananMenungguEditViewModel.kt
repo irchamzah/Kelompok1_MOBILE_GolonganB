@@ -23,4 +23,8 @@ class LayananMenungguEditViewModel (application: Application) : AndroidViewModel
     fun update(data: Layanan, file: File){
         repo.update(data, file)
     }
+
+    fun hapus(data: Layanan){
+        repo.hapus(data)
+    }
 }
