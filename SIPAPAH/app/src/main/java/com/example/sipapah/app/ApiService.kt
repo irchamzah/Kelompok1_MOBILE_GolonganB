@@ -11,16 +11,11 @@ interface ApiService{
     @Multipart
     @POST("layanan/pesan/{id}")
     fun setmemesan(
-
-
             @Path("id") id: Int,
-
             @Part("category_id") category_id: RequestBody,
-
             @Part("tanggaljemput") tanggaljemput: RequestBody,
             @Part("keterangan") keterangan: RequestBody,
             @Part path: MultipartBody.Part? = null,
-
             ): Call<ResponModel>
 
     @GET("layanan/riwayat/menunggu/{id}")
@@ -31,13 +26,11 @@ interface ApiService{
     @Multipart
     @POST("layanan/riwayat/menunggu/update/{id}")
     fun setlayananedit(
-
             @Path("id") id: Int,
             @Part("category_id") category_id: RequestBody,
             @Part("tanggaljemput") tanggaljemput: RequestBody,
             @Part("keterangan") keterangan: RequestBody,
             @Part path: MultipartBody.Part? = null,
-
             ): Call<ResponModel>
 
     @Multipart
@@ -69,6 +62,18 @@ interface ApiService{
             @Path("id") id: Int
     ):Call<ResponModel>
 
+    @Multipart
+    @POST("profil/edit/{id}")
+    fun setprofiledit(
+            @Path("id") id: Int,
+            @Part("name") name: RequestBody,
+            @Part("email") email: RequestBody,
+            @Part("password") password: RequestBody,
+            @Part("alamat") alamat: RequestBody,
+            @Part("nohp") nohp: RequestBody,
+            @Part path: MultipartBody.Part? = null,
+            ): Call<ResponModel>
+
     @FormUrlEncoded
     @POST("register")
     fun register(
@@ -84,10 +89,8 @@ interface ApiService{
     @FormUrlEncoded
     @POST("login")
     fun login(
-
         @Field("email") email: String,
         @Field("password") password: String
-
     ):Call<ResponModel>
 
     @GET("kreasi")
@@ -97,26 +100,5 @@ interface ApiService{
     fun getnotifikasi(
         @Path("id") id: Int
     ):Call<ResponModel>
-
-
-
-
-
-
-
-
-
-//    @Multipart
-//    @POST("layanan/pesan/{id}")
-//    fun setmemesan(
-//        @Part part: MultipartBody.Part,
-//        @Part("id") id: RequestBody,
-//        @Part("category") category: RequestBody,
-//        @Part("file") file: RequestBody,
-//        @Part("tanggaljemput") tanggaljemput: RequestBody,
-//        @Part("keterangan") keterangan: RequestBody
-//
-//    )
-
 
 }

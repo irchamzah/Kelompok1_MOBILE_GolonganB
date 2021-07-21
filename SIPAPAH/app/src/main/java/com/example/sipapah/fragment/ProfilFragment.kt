@@ -9,8 +9,11 @@ import android.view.ViewGroup
 import android.widget.*
 import com.example.sipapah.MainActivity
 import com.example.sipapah.R
+import com.example.sipapah.activity.LayananActivity
 import com.example.sipapah.activity.LoginActivity
+import com.example.sipapah.activity.ProfilEditActivity
 import com.example.sipapah.helper.SharedPref
+import com.squareup.picasso.Picasso
 
 
 /**
@@ -21,6 +24,7 @@ import com.example.sipapah.helper.SharedPref
 class ProfilFragment : Fragment() {
 
     lateinit var sp:SharedPref
+    lateinit var btnEditProfil: RelativeLayout
     lateinit var btnLogout:LinearLayout
 
     lateinit var tvNama:TextView
@@ -33,13 +37,20 @@ class ProfilFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_profil, container, false)
-
-        init(view)
-
         sp = SharedPref(requireActivity())
 
+        tvNama = view.findViewById(R.id.tv_nama_user)
+        tvEmail = view.findViewById(R.id.tv_email_user)
+        imgFoto = view.findViewById(R.id.img_fotouser)
+
+        setData()
+
+        btnEditProfil = view.findViewById(R.id.btn_editProfile)
+        btnEditProfil.setOnClickListener{
+            startActivity(Intent(requireActivity(), ProfilEditActivity::class.java))
+        }
+        btnLogout = view.findViewById(R.id.btn_logout)
         btnLogout.setOnClickListener{
             sp.setStatusLogin(false)
             val intent =Intent(activity, MainActivity::class.java)
@@ -47,35 +58,24 @@ class ProfilFragment : Fragment() {
             startActivity(intent)
         }
 
-        setData()
-
         return view
     }
 
-    private fun init(view:View){
-        btnLogout = view.findViewById(R.id.btn_logout)
-
-        tvNama = view.findViewById(R.id.tv_nama)
-        tvEmail = view.findViewById(R.id.tv_email)
-//        tvNohp = view.findViewById(R.id.tv_phone)
-    }
-
     fun setData(){
-
         if(sp.getUser() == null){
             val intent =Intent(activity, LoginActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
-
         val user = sp.getUser()!!
-
         tvNama.text = user.name
         tvEmail.text = user.email
-//        tvNohp.text = user.nohp
-
+        var foto = "http://192.168.1.25/Kelompok1_WEB_GolonganB/public/storage/"+user.foto
+        Picasso.get()
+                .load(foto)
+                .placeholder(R.drawable.sipapa_hijau)
+                .error(R.drawable.sipapa_hijau)
+                .resize(500,500).centerInside()
+                .into(imgFoto)
     }
-
-
-
 }

@@ -51,6 +51,14 @@
                     android:textColor="@color/hitam"
                     android:textSize="15dp"/>
 
+                <TextView
+                    android:textSize="11dp"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/mmedium"
+                    android:text="*Notifikasimu akan Muncul Disini."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_notifikasi"

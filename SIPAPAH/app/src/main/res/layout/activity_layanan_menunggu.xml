@@ -12,13 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <ProgressBar
-        android:visibility="gone"
-        android:layout_gravity="center"
-        android:id="@+id/pb_loading"
-        android:layout_centerInParent="true"
-        android:layout_width="40dp"
-        android:layout_height="40dp"/>
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -28,6 +22,22 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <TextView
+                android:textSize="11dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/mmedium"
+                android:text="*Riwayat Pesananmu akan Muncul Disini."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ProgressBar
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:id="@+id/pb_loading"
+                android:layout_centerInParent="true"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
 
 
             <LinearLayout
