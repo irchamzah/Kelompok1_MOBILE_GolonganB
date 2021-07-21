@@ -54,7 +54,7 @@ class LayananMenungguEditRepository(var application: Application){
 
     fun update(data: Layanan, file: File){
         val id = data.id
-        val categoryId = convert(data.category_id)
+        val categoryId = data.category_id
         val tanggalJemput = convert(data.tanggaljemput)
         val dataKeterangan = convert(data.keterangan)
 

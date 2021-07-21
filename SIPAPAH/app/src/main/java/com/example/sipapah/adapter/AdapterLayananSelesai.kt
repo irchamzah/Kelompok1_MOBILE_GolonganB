@@ -58,11 +58,11 @@ class AdapterLayananSelesai(var activity: Context, var arrDataLayananSelesai:Arr
     override fun onBindViewHolder(holder: Holder, position: Int) {
 
         var kategoriid = arrDataLayananSelesai[position].category_id
-        if(kategoriid == "1"){
+        if(kategoriid == 1){
             namakategori = "Kertas"
-        } else if (kategoriid == "2"){
+        } else if (kategoriid == 2){
             namakategori = "Kardus"
-        } else if (kategoriid == "3"){
+        } else if (kategoriid == 3){
             namakategori = "Plastik"
         }
 
