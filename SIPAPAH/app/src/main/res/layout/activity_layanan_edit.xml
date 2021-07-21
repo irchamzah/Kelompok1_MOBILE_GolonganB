@@ -186,7 +186,7 @@
 
         <Button
             android:fontFamily="@font/mmedium"
-            android:layout_margin="30dp"
+            android:layout_margin="10dp"
             android:id="@+id/btn_layanan_edit_buatpesanan"
             android:backgroundTint="@color/hijau2"
             android:layout_width="match_parent"
@@ -196,7 +196,7 @@
         <Button
             android:textColor="@color/merah"
             android:fontFamily="@font/mmedium"
-            android:layout_margin="30dp"
+            android:layout_margin="10dp"
             android:id="@+id/btn_layanan_hapus_buatpesanan"
             android:backgroundTint="@color/putih"
             android:layout_width="match_parent"

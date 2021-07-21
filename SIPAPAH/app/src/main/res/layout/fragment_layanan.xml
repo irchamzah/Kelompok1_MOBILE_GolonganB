@@ -32,7 +32,6 @@
 
 
         <TextView
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -219,39 +218,14 @@
             android:layout_height="5dp"
             android:background="@color/abuabu"/>
 
-        <TextView
-            android:layout_marginTop="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:fontFamily="@font/mmedium"
-            android:text="Total Pendapatan Saya: "
-            android:textColor="@color/hitam" />
-
-        <TextView
-            android:fontFamily="@font/mmedium"
-            android:textColor="@color/hijau2"
-            android:textSize="50dp"
-            android:gravity="center"
-            android:text="Rp.0"
-            android:layout_width="match_parent"
-            android:layout_height="140dp"/>
-
-        <View
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@color/abuabu"/>
-
-        <TextView
-            android:layout_marginTop="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:fontFamily="@font/mmedium"
-            android:text="Hal Menarik Lainnya: "
-            android:textColor="@color/hitam" />
+<!--        <TextView-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:fontFamily="@font/mmedium"-->
+<!--            android:text="Hal Menarik Lainnya: "-->
+<!--            android:textColor="@color/hitam" />-->
 
     </LinearLayout>
 

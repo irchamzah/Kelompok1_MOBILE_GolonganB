@@ -21,7 +21,6 @@ class SharedPref(activity: Activity) {
         sp = activity.getSharedPreferences(mypref, Context.MODE_PRIVATE)
 
     }
-
     fun setStatusLogin(status:Boolean){
         sp.edit().putBoolean(login, status).apply()
     }
@@ -29,8 +28,6 @@ class SharedPref(activity: Activity) {
     fun getStatusLogin():Boolean{
         return sp.getBoolean(login, false)
     }
-
-
 
     fun setUser(value: User) {
         val data: String = Gson().toJson(value, User::class.java)
