@@ -4,9 +4,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -26,12 +24,14 @@ import java.util.*
 
 //R
 
-class LayananActivity : AppCompatActivity() {
+class LayananActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     lateinit var vm : LayananViewModel
     lateinit var sp:SharedPref
     lateinit var btnFoto:Button
     lateinit var imgFoto:ImageView
+
+    var idkategori = 0
 
     private val viewModel: LayananActivity by viewModels()
 
@@ -60,14 +60,29 @@ class LayananActivity : AppCompatActivity() {
         btn_buatpesanan.setOnClickListener{
             simpan()
         }
+
+        val spinner = findViewById<Spinner>(R.id.spinner_pesan)
+        val adapter = ArrayAdapter.createFromResource(this, R.array.kategoris, android.R.layout.simple_spinner_item)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+        spinner.setOnItemSelectedListener(this)
     }
 
+    override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+        var dipilih = parent.getItemAtPosition(position).toString()
+        if (dipilih == "Kertas"){
+            idkategori = 1
+        } else if (dipilih == "Kardus"){
+            idkategori = 2
+        } else if (dipilih == "Plastik"){
+            idkategori = 3
+        }
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {}
+
     private fun simpan(){
-        if(edt_kategori.text.isEmpty()){
-            edt_kategori.error = "Kolom Kategori Tidak Boleh Kosong"
-            edt_kategori.requestFocus()
-            return
-        }else if(tv_tanggaljemput.text.isEmpty()) {
+        if(tv_tanggaljemput.text.isEmpty()) {
             tv_tanggaljemput.error = "Kolom tanggal Tidak Boleh Kosong"
             tv_tanggaljemput.requestFocus()
             return
@@ -81,12 +96,13 @@ class LayananActivity : AppCompatActivity() {
         val id = sp.getUser()!!.id
         val layanan = Layanan()
         layanan.id = id
-        layanan.category_id = edt_kategori.text.toString()
+        layanan.category_id = idkategori
         layanan.tanggaljemput = tv_tanggaljemput.text.toString()
         layanan.keterangan = edt_keterangan.text.toString()
         if(fileImage == null){
             Toast.makeText(this, "Pilih Gambar Terlebih Dahulu", Toast.LENGTH_SHORT).show()
             return
+            pb_loading.visibility = View.GONE
         }
         vm.create(layanan, fileImage!!)
     }
@@ -94,16 +110,16 @@ class LayananActivity : AppCompatActivity() {
     var fileImage: File? = null
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        EasyImage.handleActivityResult(requestCode, resultCode, data, this, object: DefaultCallback() {
+        EasyImage.handleActivityResult(requestCode, resultCode, data, this, object : DefaultCallback() {
             override fun onImagePicked(imageFile: File?, source: EasyImage.ImageSource?, type: Int) {
 
-                fileImage =  imageFile
+                fileImage = imageFile
                 Picasso.get()
-                    .load(imageFile!!).resize(500,500)
+                        .load(imageFile!!).resize(500, 500)
                         .centerInside()
-                    .placeholder(R.drawable.sipapa_hijau)
-                    .error(R.drawable.sipapa_hijau)
-                    .into(img_foto)
+                        .placeholder(R.drawable.sipapa_hijau)
+                        .error(R.drawable.sipapa_hijau)
+                        .into(img_foto)
             }
         })
     }
@@ -118,15 +134,15 @@ class LayananActivity : AppCompatActivity() {
         //button click to show DatePickerDialog
         btn_tanggalJemput.setOnClickListener{
             val dpd = DatePickerDialog(
-                this,
-                DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
-                    //set to text view
-                    val mmMonth = mMonth + 1
-                    tv_tanggaljemput.setText("" + mYear + "-" + mmMonth + "-" + mDay)
-                },
-                year,
-                month,
-                day
+                    this,
+                    DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
+                        //set to text view
+                        val mmMonth = mMonth + 1
+                        tv_tanggaljemput.setText("" + mYear + "-" + mmMonth + "-" + mDay)
+                    },
+                    year,
+                    month,
+                    day
             )
             //show dialog
             dpd.show()
@@ -135,8 +151,8 @@ class LayananActivity : AppCompatActivity() {
 
     fun obeservers(){
         vm.mData.observe(this, Observer {
-            toast(""+it.message)
-            val intent =Intent(this@LayananActivity, LayananMenungguActivity::class.java)
+            toast("" + it.message)
+            val intent = Intent(this@LayananActivity, LayananMenungguActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             finish()

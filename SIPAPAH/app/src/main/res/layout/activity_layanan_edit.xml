@@ -51,29 +51,18 @@
                 android:src="@drawable/ic_kreasi"/>
 
 
-            <com.google.android.material.textfield.TextInputLayout
+            <TextView
+                android:textSize="12dp"
+                android:fontFamily="@font/mmedium"
+                android:text="Pilih Jenis Sampah: "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:backgroundTint="@color/abuabu"
+                android:id="@+id/spinner_pesan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:textSize="11dp"
-                    android:fontFamily="@font/mlight"
-                    android:text="*Pilih Kategori Sampah : 1(Kertas), 2(Kardus), 3(Plastik)"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <EditText
-                    android:fontFamily="@font/mlight"
-                    android:id="@+id/edt_layanan_edit_kategori"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/putih"
-                    android:hint="Ketik 1/2/3"
-                    android:inputType="text"
-                    android:singleLine="true"
-                    android:maxLines="1"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 

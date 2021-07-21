@@ -12,7 +12,7 @@ interface ApiService{
     @POST("layanan/pesan/{id}")
     fun setmemesan(
             @Path("id") id: Int,
-            @Part("category_id") category_id: RequestBody,
+            @Part("category_id") category_id: Int,
             @Part("tanggaljemput") tanggaljemput: RequestBody,
             @Part("keterangan") keterangan: RequestBody,
             @Part path: MultipartBody.Part? = null,
@@ -27,7 +27,7 @@ interface ApiService{
     @POST("layanan/riwayat/menunggu/update/{id}")
     fun setlayananedit(
             @Path("id") id: Int,
-            @Part("category_id") category_id: RequestBody,
+            @Part("category_id") category_id: Int,
             @Part("tanggaljemput") tanggaljemput: RequestBody,
             @Part("keterangan") keterangan: RequestBody,
             @Part path: MultipartBody.Part? = null,

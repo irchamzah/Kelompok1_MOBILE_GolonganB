@@ -26,12 +26,14 @@ import java.io.File
 import java.util.*
 
 
-class LayananMenungguEditActivity : AppCompatActivity() {
+class LayananMenungguEditActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     lateinit var vm : LayananMenungguEditViewModel
     lateinit var sp: SharedPref
     lateinit var btnFoto: Button
     lateinit var imgFoto: ImageView
+
+    var idkategori = 0
 
     private val viewModel: LayananMenungguEditActivity by viewModels()
 
@@ -59,14 +61,29 @@ class LayananMenungguEditActivity : AppCompatActivity() {
         btnFoto.setOnClickListener{ EasyImage.openGallery(this, 1) }
         btn_layanan_edit_buatpesanan.setOnClickListener{ simpan() }
         btn_layanan_hapus_buatpesanan.setOnClickListener{ hapus() }
+
+        val spinner = findViewById<Spinner>(R.id.spinner_pesan)
+        val adapter = ArrayAdapter.createFromResource(this, R.array.kategoris, android.R.layout.simple_spinner_item)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+        spinner.setOnItemSelectedListener(this)
     }
 
+    override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+        var dipilih = parent.getItemAtPosition(position).toString()
+        if (dipilih == "Kertas"){
+            idkategori = 1
+        } else if (dipilih == "Kardus"){
+            idkategori = 2
+        } else if (dipilih == "Plastik"){
+            idkategori = 3
+        }
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {}
+
     private fun simpan(){
-        if(edt_layanan_edit_kategori.text.isEmpty()){
-            edt_layanan_edit_kategori.error = "Kolom Kategori Tidak Boleh Kosong"
-            edt_layanan_edit_kategori.requestFocus()
-            return
-        }else if(tv_layanan_edit_tanggaljemput.text.isEmpty()) {
+        if(tv_layanan_edit_tanggaljemput.text.isEmpty()) {
             tv_layanan_edit_tanggaljemput.error = "Kolom tanggal Tidak Boleh Kosong"
             tv_layanan_edit_tanggaljemput.requestFocus()
             return
@@ -80,13 +97,14 @@ class LayananMenungguEditActivity : AppCompatActivity() {
 //        val id_user = sp.getUser()!!.id
         val layanan = Layanan()
         layanan.id = layanan_detail_id
-        layanan.category_id = edt_layanan_edit_kategori.text.toString()
+        layanan.category_id = idkategori
 //        layanan.user_id = id_user
         layanan.tanggaljemput = tv_layanan_edit_tanggaljemput.text.toString()
         layanan.keterangan = edt_layanan_edit_keterangan.text.toString()
         if(fileImage == null){
             Toast.makeText(this, "Pilih Gambar Terlebih Dahulu", Toast.LENGTH_SHORT).show()
             return
+            pb_loading.visibility = View.GONE
         }
         vm.update(layanan, fileImage!!)
     }
@@ -129,8 +147,6 @@ class LayananMenungguEditActivity : AppCompatActivity() {
                 .error(R.drawable.sipapa_hijau)
                 .resize(500,500).centerInside()
                 .into(img_layanan_edit_foto)
-        var edtLayananEditKategori = findViewById<View>(R.id.edt_layanan_edit_kategori) as EditText
-        edtLayananEditKategori.setText(layanan.category_id, TextView.BufferType.EDITABLE)
         tv_layanan_edit_tanggaljemput.text = layanan.tanggaljemput
         var edtLayananEditKeterangan = findViewById<View>(R.id.edt_layanan_edit_keterangan) as EditText
         edtLayananEditKeterangan.setText(layanan.keterangan, TextView.BufferType.EDITABLE)
