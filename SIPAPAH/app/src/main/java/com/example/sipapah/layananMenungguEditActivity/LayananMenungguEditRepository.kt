@@ -26,6 +26,32 @@ class LayananMenungguEditRepository(var application: Application){
         showProgress.value = !(showProgress.value != null && showProgress.value!!)
     }
 
+    fun hapus(data: Layanan){
+        val id = data.id
+        val file = convert(data.file)
+
+        ApiConfig.instanceRetrofit.hapuslayananedit(id,file).enqueue(object : Callback<ResponModel> {
+            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+                if(response.isSuccessful) {
+                    val res = response.body()!!
+                    if (res.success == 1){
+
+                        mData.value = res
+                    } else {
+                        onFailure.value = res.message
+                    }
+                } else {
+                    onFailure.value = response.message()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                showProgress.value = false
+                onFailure.value = t.message
+            }
+        })
+    }
+
     fun update(data: Layanan, file: File){
         val id = data.id
         val categoryId = convert(data.category_id)

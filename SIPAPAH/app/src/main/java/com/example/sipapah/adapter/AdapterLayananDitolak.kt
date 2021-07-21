@@ -1,5 +1,6 @@
 package com.example.sipapah.adapter
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -10,17 +11,22 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sipapah.R
-import com.example.sipapah.activity.DetailKreasiActivity
-import com.example.sipapah.activity.LayananMenungguActivity
-import com.example.sipapah.activity.LayananMenungguEditActivity
+import com.example.sipapah.activity.*
+import com.example.sipapah.app.ApiConfig
+import com.example.sipapah.helper.SharedPref
 import com.example.sipapah.model.Kreasi
 import com.example.sipapah.model.Layanan
 import com.example.sipapah.model.Notifikasi
+import com.example.sipapah.model.ResponModel
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class AdapterLayananDitolak(var activity: Context, var arrDataLayananDitolak:ArrayList<Layanan>):RecyclerView.Adapter<AdapterLayananDitolak.Holder>() {
 
+    lateinit var sp: SharedPref
     var namakategori = ""
     var namastatus = ""
 
@@ -81,10 +87,31 @@ class AdapterLayananDitolak(var activity: Context, var arrDataLayananDitolak:Arr
         holder.tvLayananDitolakStatus.text = namastatus
         holder.tvLayananDitolakKeteranganTolak.text = arrDataLayananDitolak[position].keterangan
         holder.icLayananHapus.setOnClickListener{
-//            var Data = Intent(activity, LayananMenungguEditActivity::class.java) //kirim Data ke DetailKreasiActivity
-//            val dataBerdasarkanPosisi = Gson().toJson(arrDataLayananSelesai[position], Layanan::class.java) //diganti ke String
-//            Data.putExtra("dataLayananMenunggu", dataBerdasarkanPosisi)
-//            activity.startActivity(Data)
+            fun hapuspesanan(){
+                sp = SharedPref(activity as Activity)
+
+                val layanan_id = arrDataLayananDitolak[position].id
+                val file = arrDataLayananDitolak[position].file
+                ApiConfig.instanceRetrofit.hapuslayananselesai(
+                        layanan_id,
+                        file
+                ).enqueue(object : Callback<ResponModel> {
+                    override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+                        val respon = response.body()!!
+                        if (respon.success == 1) {
+
+                        } else {
+
+                        }
+                    }
+                    override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                    }
+                })
+            }
+            hapuspesanan()
+            var Data = Intent(activity, LayananDitolakActivity::class.java)
+            Data.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            activity.startActivity(Data)
         }
     }
 

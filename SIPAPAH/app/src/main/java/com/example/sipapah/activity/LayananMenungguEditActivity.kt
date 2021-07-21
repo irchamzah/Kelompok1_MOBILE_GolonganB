@@ -36,6 +36,7 @@ class LayananMenungguEditActivity : AppCompatActivity() {
     private val viewModel: LayananMenungguEditActivity by viewModels()
 
     var layanan_detail_id = 0
+    var layanan_detail_file = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +58,7 @@ class LayananMenungguEditActivity : AppCompatActivity() {
         dialogpilihtanggal()
         btnFoto.setOnClickListener{ EasyImage.openGallery(this, 1) }
         btn_layanan_edit_buatpesanan.setOnClickListener{ simpan() }
+        btn_layanan_hapus_buatpesanan.setOnClickListener{ hapus() }
     }
 
     private fun simpan(){
@@ -87,6 +89,15 @@ class LayananMenungguEditActivity : AppCompatActivity() {
             return
         }
         vm.update(layanan, fileImage!!)
+    }
+
+    private fun hapus(){
+        pb_loading.visibility = View.VISIBLE
+        val layanan = Layanan()
+        layanan.id = layanan_detail_id
+        layanan.file = layanan_detail_file
+        vm.hapus(layanan)
+
     }
 
     var fileImage: File? = null
@@ -125,6 +136,7 @@ class LayananMenungguEditActivity : AppCompatActivity() {
         edtLayananEditKeterangan.setText(layanan.keterangan, TextView.BufferType.EDITABLE)
 
         layanan_detail_id = layanan.id
+        layanan_detail_file = layanan.file
     }
 
     fun dialogpilihtanggal(){
@@ -166,6 +178,7 @@ class LayananMenungguEditActivity : AppCompatActivity() {
         vm.onFailure.observe(this, Observer {
             pb_loading.visibility = View.GONE
             toast("error: $it")
+            pb_loading.visibility = View.GONE
         })
 
     }

@@ -193,6 +193,16 @@
             android:layout_height="50dp"
             android:text="Perbarui Pesanan"/>
 
+        <Button
+            android:textColor="@color/merah"
+            android:fontFamily="@font/mmedium"
+            android:layout_margin="30dp"
+            android:id="@+id/btn_layanan_hapus_buatpesanan"
+            android:backgroundTint="@color/putih"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Batalkan Pesanan"/>
+
     </LinearLayout>
 
     <ProgressBar
