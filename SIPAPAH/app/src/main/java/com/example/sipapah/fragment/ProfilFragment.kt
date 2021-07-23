@@ -70,9 +70,9 @@ class ProfilFragment : Fragment() {
         val user = sp.getUser()!!
         tvNama.text = user.name
         tvEmail.text = user.email
-        var foto = "http://192.168.1.25/Kelompok1_WEB_GolonganB/public/storage/"+user.foto
+        var foto = "http://192.168.1.25/Kelompok1_WEB_GolonganB/public/IMG/fotoprofil/"+user.foto
         Picasso.get()
-                .load(foto)
+                .load(foto!!)
                 .placeholder(R.drawable.sipapa_hijau)
                 .error(R.drawable.sipapa_hijau)
                 .resize(500,500).centerInside()

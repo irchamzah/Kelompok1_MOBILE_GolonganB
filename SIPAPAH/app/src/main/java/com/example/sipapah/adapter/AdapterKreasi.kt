@@ -39,7 +39,7 @@ class AdapterKreasi(var activity: Context, var arrDataKreasi:ArrayList<Kreasi>):
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.tvNama.text = arrDataKreasi[position].nama
         holder.tvKeterangan.text = arrDataKreasi[position].keterangan
-        val image = "http://192.168.1.25/Kelompok1_WEB_GolonganB/public/storage/"+arrDataKreasi[position].foto
+        val image = "http://192.168.1.25/Kelompok1_WEB_GolonganB/public/IMG/fotokreasi/"+arrDataKreasi[position].foto
         Picasso.get()
             .load(image).resize(500,500).centerInside()
             .placeholder(R.drawable.sipapa_hijau)

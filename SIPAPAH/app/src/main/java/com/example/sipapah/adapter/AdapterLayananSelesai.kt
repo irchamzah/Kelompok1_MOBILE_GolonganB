@@ -80,7 +80,7 @@ class AdapterLayananSelesai(var activity: Context, var arrDataLayananSelesai:Arr
 
 
 
-        val image = "http://192.168.1.25/Kelompok1_WEB_GolonganB/public/storage/"+arrDataLayananSelesai[position].file
+        val image = "http://192.168.1.25/Kelompok1_WEB_GolonganB/public/IMG/fotopesanan/"+arrDataLayananSelesai[position].file
         Picasso.get()
                 .load(image).resize(500,500).centerInside()
                 .placeholder(R.drawable.sipapa_hijau)

@@ -5,7 +5,7 @@ class User {
     lateinit var name:String
     lateinit var email:String
     lateinit var password:String
-    lateinit var foto:String
+    var foto:String = ""
     lateinit var alamat:String
     lateinit var nohp:String
     lateinit var path: String
