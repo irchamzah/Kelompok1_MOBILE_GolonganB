@@ -140,7 +140,7 @@ class LayananMenungguEditActivity : AppCompatActivity(), AdapterView.OnItemSelec
         var layanan = Gson().fromJson<Layanan>(data, Layanan::class.java)
 
         // Set Value
-        var foto = "http://192.168.1.25/Kelompok1_WEB_GolonganB/public/IMG/fotopesanan/"+layanan.file
+        var foto = "https://wsjti.id/sipapah/public/img/fotopesanan/"+layanan.file
         Picasso.get()
                 .load(foto)
                 .placeholder(R.drawable.sipapa_hijau)

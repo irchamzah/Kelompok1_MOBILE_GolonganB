@@ -63,7 +63,7 @@ class AdapterLayananDikonfirmasi(var activity: Context, var arrDataLayananDikonf
             namastatus = "Ditolak"
         }
 
-        val image = "http://192.168.1.25/Kelompok1_WEB_GolonganB/public/IMG/fotopesanan/"+arrDataLayananDikonfirmasi[position].file
+        val image = "https://wsjti.id/sipapah/public/img/fotopesanan/"+arrDataLayananDikonfirmasi[position].file
         Picasso.get()
                 .load(image).resize(500,500).centerInside()
                 .placeholder(R.drawable.sipapa_hijau)

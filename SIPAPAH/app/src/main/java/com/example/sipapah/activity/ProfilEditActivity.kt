@@ -132,7 +132,7 @@ class ProfilEditActivity : AppCompatActivity() {
         val user = sp.getUser()!!
 
         // Set Value
-        var foto = "http://192.168.1.25/Kelompok1_WEB_GolonganB/public/IMG/fotoprofil/"+user.foto
+        var foto = "https://wsjti.id/sipapah/public/img/fotoprofil/"+user.foto
         Picasso.get()
                 .load(foto)
                 .placeholder(R.drawable.sipapa_hijau)

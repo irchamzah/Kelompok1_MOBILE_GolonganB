@@ -75,7 +75,7 @@ class AdapterLayananDitolak(var activity: Context, var arrDataLayananDitolak:Arr
 
 
 
-        val image = "http://192.168.1.25/Kelompok1_WEB_GolonganB/public/IMG/fotopesanan/"+arrDataLayananDitolak[position].file
+        val image = "https://wsjti.id/sipapah/public/img/fotopesanan/"+arrDataLayananDitolak[position].file
         Picasso.get()
                 .load(image).resize(500,500).centerInside()
                 .placeholder(R.drawable.sipapa_hijau)

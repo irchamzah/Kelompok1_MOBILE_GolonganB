@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class Notifikasi implements Serializable {
 
-    public int id;
-    public int user_id;
-    public String title;
-    public String keterangan;
+    public int id = 0;
+    public int user_id = 0;
+    public String title = "";
+    public String keterangan = "";
 
 
 }

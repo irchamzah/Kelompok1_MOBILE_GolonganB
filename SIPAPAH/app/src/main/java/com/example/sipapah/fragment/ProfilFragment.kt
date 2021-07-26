@@ -11,6 +11,7 @@ import com.example.sipapah.MainActivity
 import com.example.sipapah.R
 import com.example.sipapah.activity.LayananActivity
 import com.example.sipapah.activity.LoginActivity
+import com.example.sipapah.activity.MasukActivity
 import com.example.sipapah.activity.ProfilEditActivity
 import com.example.sipapah.helper.SharedPref
 import com.squareup.picasso.Picasso
@@ -44,7 +45,12 @@ class ProfilFragment : Fragment() {
         tvEmail = view.findViewById(R.id.tv_email_user)
         imgFoto = view.findViewById(R.id.img_fotouser)
 
-        setData()
+        if (sp.getStatusLogin()){
+            setData()
+        } else{
+            startActivity(Intent(requireActivity(), MasukActivity::class.java))
+        }
+
 
         btnEditProfil = view.findViewById(R.id.btn_editProfile)
         btnEditProfil.setOnClickListener{
@@ -70,7 +76,7 @@ class ProfilFragment : Fragment() {
         val user = sp.getUser()!!
         tvNama.text = user.name
         tvEmail.text = user.email
-        var foto = "http://192.168.1.25/Kelompok1_WEB_GolonganB/public/IMG/fotoprofil/"+user.foto
+        var foto = "https://wsjti.id/sipapah/public/img/fotoprofil/"+user.foto
         Picasso.get()
                 .load(foto!!)
                 .placeholder(R.drawable.sipapa_hijau)

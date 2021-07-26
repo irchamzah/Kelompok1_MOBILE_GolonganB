@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sipapah.R
 import com.example.sipapah.activity.LoginActivity
+import com.example.sipapah.activity.MasukActivity
 import com.example.sipapah.adapter.AdapterKreasiLengkap
 import com.example.sipapah.adapter.AdapterNotifikasi
 import com.example.sipapah.app.ApiConfig
@@ -40,12 +41,15 @@ class NotifikasiFragment : Fragment() {
 
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_notifikasi, container, false)
-
+        sp = SharedPref(requireActivity())
         init(view)
 
-        sp = SharedPref(requireActivity())
+        if (sp.getStatusLogin()){
+            getNotifikasi()
+        } else{
+            startActivity(Intent(requireActivity(), MasukActivity::class.java))
+        }
 
-        getNotifikasi()
 
         return view
     }
